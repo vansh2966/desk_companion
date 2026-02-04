@@ -13,17 +13,15 @@ its simple, it 4 touch sensor to control the display, made use it as a pomodoro 
 
 <img width="611" height="401" alt="circuit diagram" src="https://github.com/user-attachments/assets/d5a55adc-9f7a-4998-8904-027d827cca54" />
 
-#BOM
+
 ## 🛠️ Bill of Materials (BOM)
 
-| Item | Component                    | Quantity | Est. Price (INR) | LINKS |
-|      |                              |          |         | 
-| 1    |   **ESP32 S2 Mini (PSRAM)**  | 1        | ₹270.00 | https://robu.in/product/esp32-s2-mini-v1-0-0-module/
-| 2    |   **SmarteElex BME280**      | 1        | ₹282.00 | https://robu.in/product/smartelex-bme280-atmospheric-sensor-breakout-board/
-| 3    |   **0.91" Blue OLED**        | 2        | ₹354.00 | https://robu.in/product/0-91-inch-128x32-i2c-iic-serial-blue-oled-lcd-display-module/
-| 4    |   **2.4" SPI TFT LCD**       | 1        | ₹507.00 | https://robu.in/product/2-4-inch-spi-interface-240x320-touch-screen-tft-display-module/
-| 5    |   **TTP223 Touch Module**    | 4        | ₹36.00  | TTP223 Touch Key Module - 2Pcs
-| 6    |   **18650 Battery**          | 1        | ₹217.00 | https://robu.in/product/bak-nmc-18650-2600mah-3c-lithium-ion-3-6v-battery/
-| 7    |   **Misc Materials**         | 1        | ₹100.00 |
+Item,Component,Description,Quantity,Unit Price (INR),Total (INR)
+1,ESP32 S2 Mini V1.0.0 (PSRAM),MCU with 2MB PSRAM and Native USB-C,1,270.0,270.0
+2,SmarteElex BME280,Atmospheric Sensor (Temp/Humid/Pres),1,282.0,282.0
+3,0.91 inch Blue OLED,128x32 I2C Display Module,2,177.0,354.0
+4,2.4 inch SPI TFT LCD,240x320 SPI Interface Module,1,507.0,507.0
+5,TTP223 Touch Module,Capacitive Touch Key Module (2pcs per set),2,18.0,36.0
+6,18650 Battery,3.7V Lithium-Ion Cell,1,217.0,217.0
+7,Misc (Wires/Solder),Building materials,1,100.0,100.0
 
-| | **TOTAL** | | | **₹1,766.00** |
