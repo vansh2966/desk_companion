@@ -16,12 +16,15 @@ its simple, it 4 touch sensor to control the display, made use it as a pomodoro 
 
 ## 🛠️ Bill of Materials (BOM)
 
-Item,Component,Description,Quantity,Unit Price (INR),Total (INR)
-1,ESP32 S2 Mini V1.0.0 (PSRAM),MCU with 2MB PSRAM and Native USB-C,1,270.0,270.0
-2,SmarteElex BME280,Atmospheric Sensor (Temp/Humid/Pres),1,282.0,282.0
-3,0.91 inch Blue OLED,128x32 I2C Display Module,2,177.0,354.0
-4,2.4 inch SPI TFT LCD,240x320 SPI Interface Module,1,507.0,507.0
-5,TTP223 Touch Module,Capacitive Touch Key Module (2pcs per set),2,18.0,36.0
-6,18650 Battery,3.7V Lithium-Ion Cell,1,217.0,217.0
-7,Misc (Wires/Solder),Building materials,1,100.0,100.0
+## 🛠️ Bill of Materials (BOM)
 
+| Item | Component | Description | Quantity | Est. Price (INR) |
+| :--- | :--- | :--- | :---: | :---: |
+| 1 | **ESP32 S2 Mini (PSRAM)** | MCU with 2MB PSRAM and Native USB-C | 1 | ₹270.00 |
+| 2 | **SmarteElex BME280** | Atmospheric Sensor (Temp/Humid/Pres) | 1 | ₹282.00 |
+| 3 | **0.91" Blue OLED** | 128x32 I2C Display Modules | 2 | ₹354.00 |
+| 4 | **2.4" SPI TFT LCD** | 240x320 Main Dashboard Screen | 1 | ₹507.00 |
+| 5 | **TTP223 Touch Module** | Capacitive Touch Key Modules | 2 | ₹36.00 |
+| 6 | **18650 Battery** | 3.7V Lithium-Ion Power Source | 1 | ₹150.00 |
+| 7 | **Misc Materials** | Wires, Solder, and 3D Print Filament | 1 | ₹100.00 |
+| | **TOTAL** | | | **₹1,699.00** |
