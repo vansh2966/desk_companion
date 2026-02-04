@@ -24,7 +24,7 @@ its simple, it 4 touch sensor to control the display, made use it as a pomodoro 
 | 2 | **SmarteElex BME280** | Atmospheric Sensor (Temp/Humid/Pres) | 1 | ₹282.00 |
 | 3 | **0.91" Blue OLED** | 128x32 I2C Display Modules | 2 | ₹354.00 |
 | 4 | **2.4" SPI TFT LCD** | 240x320 Main Dashboard Screen | 1 | ₹507.00 |
-| 5 | **TTP223 Touch Module** | Capacitive Touch Key Modules | 2 | ₹36.00 |
-| 6 | **18650 Battery** | 3.7V Lithium-Ion Power Source | 1 | ₹150.00 |
+| 5 | **TTP223 Touch Module** | Capacitive Touch Key Modules | 4 | ₹36.00 |
+| 6 | **18650 Battery** | 3.7V Lithium-Ion Power Source | 1 | ₹217.00 |
 | 7 | **Misc Materials** | Wires, Solder, and 3D Print Filament | 1 | ₹100.00 |
-| | **TOTAL** | | | **₹1,699.00** |
+| | **TOTAL** | | | **₹1,766.00** |
