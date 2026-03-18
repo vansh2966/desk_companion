@@ -22,12 +22,18 @@ i was really forwading to making something useful for me and something i can rea
 
 ## 🛠️ Bill of Materials (BOM)
 
-Item|Component|Quantity|Link
-1|Seeed Studio XIAO ESP32-S3|1|https://www.amazon.in/dp/B0B94JZ2YF
-2|BME280 Temperature & Humidity Sensor|1|https://www.amazon.in/dp/B08SVZ9LJR
-3|5mm LDR Sensor (Photoresistor)|2|https://robu.in/product/5mm-ldr-sensor-photoresistor-photo-cell-100-200k-gl5549/
-4|2.8 inch SPI TFT Touch Screen (ILI9341)|1|https://robu.in/product/2-8-inch-spi-touch-screen-module-tft-interface-240320/
-5|1000mAh Lithium Polymer Battery|1|https://www.amazon.in/dp/B0FT42CFXZ
-6|10k Ohm Resistor (LDR Divider)|1|https://robu.in/product/10k-ohm-0-5w-metal-film-resistor-pack-of-50/
-7|1M Ohm Resistors (Battery Monitor)|2|https://robu.in/product/1m-ohm-0-5w-metal-film-resistor-pack-of-50/
-8|Misc (Wires, Solder, PLA Filament)|1|N/A
+### Bill of Materials (BOM)
+
+| Item | Component | Qty | Link |
+| :--- | :--- | :--- | :--- |
+| 1 | Seeed Studio XIAO ESP32-S3 | 1 | [Amazon](https://www.amazon.in/dp/B0B94JZ2YF) |
+| 2 | BME280 Temp/Humid/Pressure Sensor | 1 | [Amazon](https://www.amazon.in/dp/B08SVZ9LJR) |
+| 3 | 5mm LDR Sensor (Photoresistor) | 2 | [Robu.in](https://robu.in/product/5mm-ldr-sensor-photoresistor-photo-cell-100-200k-gl5549/) |
+| 4 | 2.8" SPI TFT Touch Screen (ILI9341) | 1 | [Robu.in](https://robu.in/product/2-8-inch-spi-touch-screen-module-tft-interface-240320/) |
+| 5 | 1000mAh Lithium Polymer Battery | 1 | [Amazon](https://www.amazon.in/dp/B0FT42CFXZ) |
+| 6 | 10k Ohm Resistor (for LDR) | 1 | [Robu.in](https://robu.in/product/10k-ohm-0-5w-metal-film-resistor-pack-of-50/) |
+| 7 | 1M Ohm Resistors (for Battery Monitor) | 2 | [Robu.in](https://robu.in/product/1m-ohm-0-5w-metal-film-resistor-pack-of-50/) |
+| 8 | Misc (Wires, Solder, M3 Screws) | 1 | N/A |
+
+
+
