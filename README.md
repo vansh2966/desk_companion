@@ -22,19 +22,17 @@ i was really forwading to making something useful for me and something i can rea
 
 ## 🛠️ Bill of Materials (BOM)
 
-| Item | Component | Qty | Unit Price | Total | Link |
-| :--- | :--- | :---: | :--- | :--- | :--- |
-| 1 | Seeed Studio XIAO ESP32-S3 | 1 | ₹1,650 | ₹1,650 | [Link](https://www.amazon.in/dp/B0B94JZ2YF) |
-| 2 | BME280 Sensor (Temp/Humid) | 1 | ₹450 | ₹450 | [Link](https://www.amazon.in/dp/B08SVZ9LJR) |
-| 3 | 5mm LDR Photoresistor | 2 | ₹16 | ₹32 | [Link](https://robu.in/product/5mm-ldr-sensor-photoresistor-photo-cell-100-200k-gl5549/) |
-| 4 | 2.8" SPI TFT Touch Screen | 1 | ₹807 | ₹807 | [Link](https://robu.in/product/2-8-inch-spi-touch-screen-module-tft-interface-240320/) |
-| 5 | 1000mAh LiPo Battery | 1 | ₹500 | ₹500 | [Link](https://www.amazon.in/dp/B0FT42CFXZ) |
-| 6 | 10k Ohm Resistor | 1 | ₹1 | ₹1 | [Link](https://robu.in/product/10k-ohm-0-5w-metal-film-resistor-pack-of-50/) |
-| 7 | 1M Ohm Resistor | 2 | ₹1 | ₹2 | [Link](https://robu.in/product/1m-ohm-0-5w-metal-film-resistor-pack-of-50/) |
-| 8 | Misc (Wires, Solder, Screws) | 1 | ₹500 | ₹500 | N/A |
-| **Total** | | | | **₹3,942** | |
-| 7 | 1M Ohm Resistors (for Battery Monitor) | 2 | [Robu.in](https://robu.in/product/1m-ohm-0-5w-metal-film-resistor-pack-of-50/) |
-| 8 | Misc (Wires, Solder, M3 Screws) | 1 | N/A |
 
+| Item | Component | Qty | Unit Price (INR) | Total (INR) | Link |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| 1 | Seeed Studio XIAO ESP32-S3 | 1 | 1650 | 1650 | [Link](https://www.amazon.in/dp/B0B94JZ2YF) |
+| 2 | BME280 Sensor (Temp/Humid) | 1 | 450 | 450 | [Link](https://www.amazon.in/dp/B08SVZ9LJR) |
+| 3 | 5mm LDR Photoresistor | 2 | 16 | 32 | [Link](https://robu.in/product/5mm-ldr-sensor-photoresistor-photo-cell-100-200k-gl5549/) |
+| 4 | 2.8" SPI TFT Touch Screen | 1 | 807 | 807 | [Link](https://robu.in/product/2-8-inch-spi-touch-screen-module-tft-interface-240320/) |
+| 5 | Lithium Polymer Battery | 1 | 500 | 500 | [Link](https://www.amazon.in/dp/B0FT42CFXZ) |
+| 6 | 10k Ohm Resistor | 1 | 1 | 1 | [Link](https://robu.in/product/10k-ohm-0-5w-metal-film-resistor-pack-of-50/) |
+| 7 | 1M Ohm Resistor | 2 | 1 | 2 | [Link](https://robu.in/product/1m-ohm-0-5w-metal-film-resistor-pack-of-50/) |
+| 8 | Misc (Wires/Solder) | 1 | 500 | 500 | N/A |
+| **Total** | | | | **3942** | |
 
 
