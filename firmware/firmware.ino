@@ -26,23 +26,23 @@
 #define UI_LINE        0x4208
 #define UI_ORANGE      0xFD20
 
-// --- Wi-Fi Credentials ---
-const char* ssid     = "Airtel_9722576060_5GHz";
-const char* password = "air55665";
+// Wi-Fi Credentials 
+const char* ssid     = "";
+const char* password = "";
 
-// --- API Keys ---
-String weatherApiKey = "028d03bd0ba9f42113631862f8ad1702";
-String city = "Ahmedabad";
-String countryCode = "IN";
+//  API Keys 
+String weatherApiKey = "";
+String city = "";
+String countryCode = "";
 
-// --- SPOTIFY CREDENTIALS ---
-String spotifyRefreshToken = "AQA2on0_-AbgkmolE3XrMppYDFaOGF85dztSkV8ofIkcCDEogG5VYhMXtPssBPMqmE4-fxR2WxIsRrvyMN_f6op3EBHQBUTKbLk-BEa5wuslFAPX-TLICcqNm0XH8y_eW0A";
-String spotifyBase64Auth = "MWFkZDI4MGZlY2M1NGU0YWFiYWM5N2UzY2I4YTAzNmI6YjE3M2JiZTRhNzkwNGIzYmE3YzM1MDJiYTUzYThmOTE=";
+// SPOTIFY CREDENTIALS 
+String spotifyRefreshToken = "";
+String spotifyBase64Auth = "";
 
-// --- TODOIST TASKS ---
-String todoistToken = "aa48cfbec036a743802939b523f3c3fd95f7fa07"; // Paste your Todoist API token here to enable cloud tasks.
+// TODOISD
+String todoistToken = ""; // Paste your Todoist API token
 
-// --- Pins (XIAO ESP32S3 + ILI9341 + XPT2046) ---
+//Pins
 #define SPI_SCK  7
 #define SPI_MISO 44
 #define SPI_MOSI 9
@@ -87,21 +87,21 @@ char spotifyControlAction[12] = "";
 unsigned long lastSpotifyTokenRefresh = 0;
 unsigned long lastSpotifyDataFetch = 0;
 
-// --- Album Art Buffer ---
+// Album Art Buffer
 #define ALBUM_ART_MAX_SIZE 12000
 static uint8_t imgBuff[ALBUM_ART_MAX_SIZE];
 static uint8_t imgDownloadBuff[ALBUM_ART_MAX_SIZE];
 size_t imgBuffSize = 0;
 String cachedAlbumUrl = "";
 
-// --- Weather State ---
+// Weather State
 float currentTemp = 0.0;
 int currentHumidity = 0;
 String currentWeather = "--";
 volatile bool weatherDirty = false;
 unsigned long lastWeatherUpdate = 0;
 
-// --- PC Telemetry State ---
+// PC Telemetry State 
 float pcCpuUsage = 0.0;
 float pcGpuTemp = -1.0;
 float pcRamUsage = 0.0;
@@ -119,7 +119,7 @@ volatile bool taskCompletePending = false;
 String taskCompleteId = "";
 unsigned long lastTaskFetch = 0;
 
-// --- Time ---
+//Time
 const char* ntpServer  = "pool.ntp.org";
 const char* ntpServer2 = "time.google.com";
 const char* ntpServer3 = "time.cloudflare.com";
@@ -129,7 +129,7 @@ unsigned long lastNTPSync = 0;
 char lastTopClock[10] = "";
 int lastDashboardMinute = -1;
 
-// --- Power / Display ---
+// Power / Display
 int currentBrightness = 155;
 const int MIN_BRIGHTNESS = 20;
 const int MAX_BRIGHTNESS = 230;
@@ -139,7 +139,7 @@ bool screenDimmed = false;
 unsigned long lastInteractionMillis = 0;
 unsigned long lastTouchTime = 0;
 
-// --- Timer/SW Variables ---
+// Timer/SW Variables
 long timerSeconds = 25 * 60;
 bool timerRunning = false;
 unsigned long lastTimerTick = 0;
@@ -147,7 +147,7 @@ unsigned long swStartMillis = 0;
 unsigned long swElapsedMillis = 0;
 bool swRunning = false;
 
-// --- Marquee ---
+//Marquee
 GFXcanvas16* marqueeCanvas;
 int marqueeX = 0;
 int songPixelWidth = 0;
@@ -156,7 +156,7 @@ unsigned long lastMarqueeUpdate = 0;
 unsigned long lastBeatUpdate = 0;
 char marqueeSong[96] = "Loading...";
 
-// --- Timing constants ---
+// Timing constants 
 const unsigned long NTP_SYNC_INTERVAL_MS = 900000UL;
 const unsigned long SPOTIFY_TOKEN_INTERVAL_MS = 3000000UL;
 const unsigned long SPOTIFY_FETCH_INTERVAL_MS = 4500;
@@ -181,7 +181,7 @@ const int MARQUEE_VIEW_HEIGHT = 35;
 const int MARQUEE_GAP_PX = 48;
 const int MARQUEE_TEXT_PADDING_PX = 18;
 
-// --- Forward declarations ---
+//Forward declaration
 bool tft_output(int16_t x, int16_t y, uint16_t w, uint16_t h, uint16_t* bitmap);
 static inline bool elapsedSince(unsigned long now, unsigned long last, unsigned long interval);
 static inline bool timeReached(unsigned long now, unsigned long target);
@@ -458,9 +458,9 @@ void loop() {
   vTaskDelay(pdMS_TO_TICKS(2));
 }
 
-// ==========================================
-//              BACKGROUND NETWORK
-// ==========================================
+
+// BACKGROUND NETWORK
+
 void networkTask(void* pvParameters) {
   for (;;) {
     unsigned long now = millis();
@@ -905,9 +905,9 @@ void refreshTelemetryStaleUi(unsigned long now) {
   initialized = true;
 }
 
-// ==========================================
-//              TIME / TOP BAR
-// ==========================================
+
+// TIME / TOP BAR
+
 bool syncTimeNow(bool waitForSync) {
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer, ntpServer2, ntpServer3);
   lastNTPSync = millis();
@@ -962,9 +962,8 @@ void updateTopClock(bool force) {
   tft.print(clockStr);
 }
 
-// ==========================================
-//              DISPLAY / POWER / TOUCH
-// ==========================================
+// DISPLAY / POWER / TOUCH
+
 void initDisplaySafely() {
   pinMode(TFT_BL, OUTPUT);
   analogWrite(TFT_BL, 0);
@@ -1077,9 +1076,9 @@ bool readTouchPoint(int& x, int& y) {
   return true;
 }
 
-// ==========================================
-//              UI FLOW
-// ==========================================
+
+//UI FLOW
+
 void redrawCurrentApp() {
   if (currentApp == DASHBOARD) redrawEntireUI();
   else if (currentApp == SPOTIFY) drawSpotifyUI();
@@ -1575,9 +1574,9 @@ void handleTouch(int x, int y) {
   }
 }
 
-// ==========================================
-//              SPOTIFY UI
-// ==========================================
+
+//SPOTIFY UI
+
 void drawSpotifyUI() {
   tft.fillScreen(ILI9341_BLACK);
   drawTopBar("NOW PLAYING", SPOTIFY_GREEN, true);
@@ -1746,9 +1745,9 @@ void drawBeatVisualizer(bool force) {
   }
 }
 
-// ==========================================
-//              TIMER / STOPWATCH UI
-// ==========================================
+
+//TIMER / STOPWATCH UI
+
 void drawFocusAppUI() {
   tft.fillScreen(ILI9341_BLACK);
   drawTopBar("FOCUS", currentApp == TIMER ? AESTHETIC_GOLD : ILI9341_CYAN, true);
