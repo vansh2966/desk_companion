@@ -17,6 +17,13 @@ i was really forwading to making something useful for me and something i can rea
 
 <img width="777" height="336" alt="finally" src="https://github.com/user-attachments/assets/887de56c-ece8-42a4-a2d3-e8e87e2e143e" />
 
+i finally completed buidling it, took me lot of time to figure it out, had change the design has the chip was getting really hot, so i added a fan.
+but yea after all the things, it works really well.
+
+<img width="899" height="1599" alt="WhatsApp Image 2026-05-06 at 2 39 04 PM" src="https://github.com/user-attachments/assets/64389f0f-3e74-472d-bc53-33b6eb3f22e2" />
+<img width="899" height="1599" alt="WhatsApp Image 2026-05-06 at 2 38 47 PM" src="https://github.com/user-attachments/assets/f6312ad4-c761-439b-a684-982363022444" />
+
+
 
 
 
