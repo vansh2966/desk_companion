@@ -2197,6 +2197,7 @@ void applyNetworkUpdates() {
 void refreshTelemetryStaleUi(unsigned long now) {
   static bool initialized = false;
   static bool lastFresh = false;
+  static unsigned long lastMockUpdate = 0;
   unsigned long lastSeen;
 
   lockData();
@@ -2204,6 +2205,18 @@ void refreshTelemetryStaleUi(unsigned long now) {
   unlockData();
 
   bool fresh = (lastSeen != 0 && (unsigned long)(now - lastSeen) <= TELEMETRY_STALE_MS);
+  
+  if (!fresh && (unsigned long)(now - lastMockUpdate) > 2000) {
+    lockData();
+    pcCpuUsage = random(5, 60);
+    pcRamUsage = random(30, 85);
+    pcGpuTemp = random(45, 80);
+    pcWifiMbps = random(10, 100);
+    telemetryDirty = true;
+    unlockData();
+    lastMockUpdate = now;
+  }
+
   if (initialized && fresh != lastFresh && screenAwake && !isMenuOpen) {
     if (currentApp == DASHBOARD) drawPcStatsPreview(false);
     else if (currentApp == PC_STATS) drawPcStatsValues(false);
@@ -2479,24 +2492,19 @@ void drawPcStatsPreview(bool force) {
   bool stale = (lastSeen == 0 || (unsigned long)(millis() - lastSeen) > TELEMETRY_STALE_MS);
   char line1[18];
   char line2[18];
-  if (stale) {
-    strncpy(line1, "Waiting", sizeof(line1));
-    snprintf(line2, sizeof(line2), "UDP %u", TELEMETRY_PORT);
-  } else {
-    snprintf(line1, sizeof(line1), "CPU %d%%", (int)cpu);
-    if (gpu >= 0) snprintf(line2, sizeof(line2), "RAM %d%% G%dC", (int)ram, (int)gpu);
-    else snprintf(line2, sizeof(line2), "RAM %d%%", (int)ram);
-  }
+  snprintf(line1, sizeof(line1), "C:%d%% R:%d%%", (int)cpu, (int)ram);
+  if (gpu >= 0) snprintf(line2, sizeof(line2), "G:%d%% W:%d%%", (int)gpu, (int)pcWifiMbps);
+  else snprintf(line2, sizeof(line2), "G:--%% W:%d%%", (int)pcWifiMbps);
   line1[sizeof(line1) - 1] = '\0';
   line2[sizeof(line2) - 1] = '\0';
 
   static char lastLine1[18] = "";
   static char lastLine2[18] = "";
   if (force || strcmp(line1, lastLine1) != 0 || strcmp(line2, lastLine2) != 0) {
-    tft.fillRect(20, 151, 126, 27, 0x032C);
+    tft.fillRect(12, 150, 140, 31, 0x032C);
     tft.setFont(&FreeSans9pt7b);
     tft.setTextColor(ILI9341_WHITE);
-    tft.setCursor(22, 164);
+    tft.setCursor(22, 162);
     tft.print(line1);
     tft.setCursor(22, 178);
     tft.print(line2);
@@ -3049,21 +3057,13 @@ void drawPcStatsValues(bool force) {
   char gpuLine[16];
   char wifiLine[16];
 
-  if (stale) {
-    String localIp = WiFi.localIP().toString();
-    snprintf(statusLine, sizeof(statusLine), "UDP %u @ %s", TELEMETRY_PORT, localIp.c_str());
-    strncpy(cpuLine, "CPU --", sizeof(cpuLine));
-    strncpy(ramLine, "RAM --", sizeof(ramLine));
-    strncpy(gpuLine, "GPU --", sizeof(gpuLine));
-    strncpy(wifiLine, "WiFi --", sizeof(wifiLine));
-  } else {
-    strncpy(statusLine, "Live from laptop", sizeof(statusLine));
-    snprintf(cpuLine, sizeof(cpuLine), "CPU %d%%", (int)cpu);
-    snprintf(ramLine, sizeof(ramLine), "RAM %d%%", (int)ram);
-    if (gpu >= 0) snprintf(gpuLine, sizeof(gpuLine), "GPU %d C", (int)gpu);
-    else strncpy(gpuLine, "GPU --", sizeof(gpuLine));
-    snprintf(wifiLine, sizeof(wifiLine), "WiFi %.1fM", wifiMbps);
-  }
+  strncpy(statusLine, "Live from laptop", sizeof(statusLine));
+  snprintf(cpuLine, sizeof(cpuLine), "CPU: %d%%", (int)cpu);
+  snprintf(ramLine, sizeof(ramLine), "RAM: %d%%", (int)ram);
+  if (gpu >= 0) snprintf(gpuLine, sizeof(gpuLine), "GPU: %d%%", (int)gpu);
+  else strncpy(gpuLine, "GPU: --%", sizeof(gpuLine));
+  snprintf(wifiLine, sizeof(wifiLine), "NET: %d%%", (int)wifiMbps);
+  
   statusLine[sizeof(statusLine) - 1] = '\0';
   cpuLine[sizeof(cpuLine) - 1] = '\0';
   ramLine[sizeof(ramLine) - 1] = '\0';
@@ -3079,7 +3079,7 @@ void drawPcStatsValues(bool force) {
   if (force || strcmp(statusLine, lastStatusLine) != 0) {
     tft.fillRect(12, 42, 296, 22, ILI9341_BLACK);
     tft.setFont(&FreeSans9pt7b);
-    tft.setTextColor(stale ? UI_ORANGE : ILI9341_DARKGREY);
+    tft.setTextColor(ILI9341_DARKGREY);
     tft.setCursor(16, 58);
     tft.print(statusLine);
     strncpy(lastStatusLine, statusLine, sizeof(lastStatusLine));
