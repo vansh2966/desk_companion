@@ -4,6 +4,15 @@ my main motive to make this was to see date and time, as i didnt had a desk cloc
 i was really forwading to making something useful for me and something i can really call project. i was past the basic ardrino projects. so decided to build something that usefull for me and so that i can also learn CAD.
 
 
+**SETUP INTRUSCTIONS**
+1) do the soldering of everything
+2) place ur display and screw it or glue it
+3) glue ur microcontroller in its place
+4) screw the top lid
+5) connect microcontrtoller with usb to ur pc
+6) open ide, paste ur code and uplaod it (downlaod necessary librarys of ur microcontroller)
+
+
 
 <img width="629" height="337" alt="main" src="https://github.com/user-attachments/assets/7b29ac14-5105-4b8d-aa60-a2a8d2adb545" />
 
